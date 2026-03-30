@@ -57,7 +57,14 @@ section{position:relative;z-index:1}
 .countdown-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.1em;margin-top:0.25rem}
 .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fU 1s 1.5s ease forwards}
 .scroll-hint span{font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:0.14em;text-transform:uppercase}
-.scroll-bar{width:1px;height:48px;background:linear-gradient(to bottom,var(--green),transparent);animation:sBar 2s ease-in-out infinite}
+.hero-stats-row{display:flex;align-items:center;justify-content:center;gap:0;margin-top:3.5rem;opacity:0;animation:fU 0.8s 1s ease forwards;flex-wrap:wrap;gap:1rem}
+.hero-stat{text-align:center;padding:0 1.5rem}
+.hero-stat-num{display:block;font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.35rem}
+.hero-stat-num.bad{color:var(--red)}
+.hero-stat-num.good{color:var(--green)}
+.hero-stat-label{display:block;font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase}
+.hero-stat-div{width:1px;height:40px;background:var(--border)}
+@media(max-width:600px){.hero-stat-div{display:none}.hero-stats-row{gap:1.5rem}}
 @keyframes sBar{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @keyframes fU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
@@ -201,9 +208,9 @@ footer{padding:2.5rem;border-top:1px solid var(--border2);display:flex;justify-c
   <div class="nav-right">
     <div class="nav-links">
       <a href="#manifesto">Manifesto</a>
-      <a href="#crisis">The crisis</a>
-      <a href="#demo">April 22</a>
+      <a href="#crisis">The cost</a>
       <a href="#calculator">Impact</a>
+      <a href="#demo">April 22</a>
     </div>
     <a href="#join" class="nav-cta">Join us</a>
   </div>
@@ -213,21 +220,25 @@ footer{padding:2.5rem;border-top:1px solid var(--border2);display:flex;justify-c
 <section class="hero" id="top">
   <div class="hero-glow"></div>
   <div>
-    <p class="hero-eyebrow">Global Local AI Movement</p>
+    <p class="hero-eyebrow">Global Local AI Movement · Launching Earth Day 2026</p>
     <h1 class="hero-title">
-      <span class="l1">AI belongs</span>
-      <span class="l2">to everyone.</span>
-      <span class="l3">Take it back.</span>
+      <span class="l1">AI is burning</span>
+      <span class="l2">the planet.</span>
+      <span class="l3">We're building the fix.</span>
     </h1>
-    <p class="hero-sub">A handful of corporations are centralising the most powerful technology in human history — burning water, burning fossil fuels, locking communities out. <strong>We are building the movement that changes that.</strong></p>
+    <p class="hero-sub">Cloud AI data centers consumed <strong>183 terawatt-hours</strong> of electricity and <strong>17 billion gallons of water</strong> in the US last year alone. Local AI eliminates that footprint entirely — and we are building the movement to make it happen.</p>
     <div class="hero-actions">
-      <a href="#join" class="btn-primary">Become a Glammer</a>
-      <a href="#manifesto" class="btn-secondary">Read the Glamifesto</a>
+      <a href="#calculator" class="btn-primary">See the impact</a>
+      <a href="#join" class="btn-secondary">Become a Glammer</a>
     </div>
-    <div class="hero-countdown">
-      <div class="countdown-label">Movement launch</div>
-      <div class="countdown-num" id="countdown">27</div>
-      <div class="countdown-sub">Days until Earth Day · April 22 2026</div>
+    <div class="hero-stats-row">
+      <div class="hero-stat"><span class="hero-stat-num bad">183 TWh</span><span class="hero-stat-label">US cloud AI electricity 2024</span></div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat"><span class="hero-stat-num bad">17B gal</span><span class="hero-stat-label">Water for cooling 2023</span></div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat"><span class="hero-stat-num good">0 gal</span><span class="hero-stat-label">Local AI water footprint</span></div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat"><span class="hero-stat-num good" id="countdown">22</span><span class="hero-stat-label">Days to Earth Day launch</span></div>
     </div>
   </div>
   <div class="scroll-hint">
@@ -338,30 +349,45 @@ footer{padding:2.5rem;border-top:1px solid var(--border2);display:flex;justify-c
   </div>
 </section>
 
-<!-- CRISIS -->
-<section class="crisis" id="crisis">
+<!-- ENVIRONMENTAL IMPACT — LEADS FOR EARTH DAY / CLIMATEBASE -->
+<section class="crisis" id="crisis" style="background:var(--bg2)">
   <div class="crisis-inner">
-    <div class="section-tag red">The hidden cost of cloud AI</div>
+    <div class="section-tag red">The environmental cost of cloud AI</div>
     <h2 class="crisis-headline">Every query.<br>Every day.<br><em>Someone pays.</em></h2>
     <div class="crisis-body">
-      <p>ChatGPT processes 2.5 billion queries every single day. US data centers consumed 183 terawatt-hours of electricity in 2024 — equal to the entire nation of Pakistan. They used 17 billion gallons of water for cooling. Natural gas and coal supply nearly 60% of that power.</p>
-      <p>Most people have no idea. The cloud is invisible. The cost is paid by the environment, by communities near data centers, and by a planet that cannot afford it. Local AI changes that equation entirely — running on the device already on your desk, consuming zero cooling water, eliminating the cloud overhead entirely.</p>
+      <p>ChatGPT processes 2.5 billion queries every single day. US data centers consumed 183 terawatt-hours of electricity in 2024 — equivalent to the entire nation of Pakistan. They used 17 billion gallons of water for cooling. Natural gas and coal supply nearly 60% of that power. That number doubles by 2030.</p>
+      <p>Most people using AI every day have no idea this is happening. The cloud is invisible. The cost is paid by the environment, by communities near data centers, and by a planet that cannot afford it. Local AI eliminates that footprint entirely — and the research proves it works at scale.</p>
     </div>
     <div class="stats-grid">
       <div class="stat">
         <div class="stat-num bad">183 TWh</div>
         <div class="stat-label">US data center electricity in 2024 — equal to Pakistan's entire annual demand</div>
-        <div class="stat-src">IEA Energy & AI Report 2025</div>
+        <div class="stat-src">IEA Energy &amp; AI Report 2025</div>
       </div>
       <div class="stat">
         <div class="stat-num bad">17B gal</div>
-        <div class="stat-label">Gallons of water cooling US data centers in 2023 — projected to double by 2028</div>
+        <div class="stat-label">Gallons of water consumed cooling US data centers in 2023 — doubling by 2028</div>
         <div class="stat-src">Berkeley Lab / US DOE 2024</div>
       </div>
       <div class="stat">
+        <div class="stat-num bad">2×</div>
+        <div class="stat-label">Data center energy demand projected to double by 2030 driven by AI adoption</div>
+        <div class="stat-src">IEA 2025</div>
+      </div>
+      <div class="stat">
         <div class="stat-num good">40–65%</div>
-        <div class="stat-label">Energy reduction when shifting everyday AI from cloud to local devices</div>
+        <div class="stat-label">Energy reduction when shifting everyday AI queries from cloud to local devices</div>
         <div class="stat-src">Hazy Research / Stanford 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num good">88.7%</div>
+        <div class="stat-label">Of everyday AI queries can be handled accurately by local models right now</div>
+        <div class="stat-src">Intelligence Per Watt Study 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num good">0 gal</div>
+        <div class="stat-label">Water used by local AI running on your own device. Zero. None. On your desk.</div>
+        <div class="stat-src">By design</div>
       </div>
     </div>
   </div>
@@ -412,19 +438,19 @@ footer{padding:2.5rem;border-top:1px solid var(--border2);display:flex;justify-c
 <!-- CALCULATOR -->
 <section class="calculator" id="calculator">
   <div class="calc-inner">
-    <div class="section-tag">The impact at scale</div>
-    <h2 class="calc-headline">What if a million<br>of us went <em>local?</em></h2>
-    <p class="calc-sub">See the real environmental savings when Glammers shift everyday AI from cloud data centers to local devices.</p>
+    <div class="section-tag">The environmental impact at scale</div>
+    <h2 class="calc-headline">What if <em>100 million</em><br>of us went local?</h2>
+    <p class="calc-sub">The numbers at civilisational scale are the numbers that matter for Earth Day, for Climatebase, and for the funders who need to understand why local AI is a climate solution — not just a technology choice.</p>
     <div class="calc-box">
       <div class="preset-row">
-        <button class="preset-btn" onclick="setUsers(10000)">10k users</button>
-        <button class="preset-btn active" onclick="setUsers(100000)">100k users</button>
-        <button class="preset-btn" onclick="setUsers(250000)">250k users</button>
-        <button class="preset-btn" onclick="setUsers(1000000)">1M users</button>
+        <button class="preset-btn" onclick="setUsers(100000)">100k</button>
+        <button class="preset-btn" onclick="setUsers(1000000)">1M</button>
+        <button class="preset-btn" onclick="setUsers(10000000)">10M</button>
+        <button class="preset-btn active" onclick="setUsers(100000000)">100M</button>
       </div>
       <div class="sl-group">
-        <div class="sl-top"><span class="sl-name">Number of Glammers</span><span class="sl-val" id="users-out">100,000</span></div>
-        <input type="range" id="users-slider" min="1000" max="1000000" step="1000" value="100000" oninput="update()">
+        <div class="sl-top"><span class="sl-name">Number of Glammers</span><span class="sl-val" id="users-out">100,000,000</span></div>
+        <input type="range" id="users-slider" min="10000" max="100000000" step="10000" value="100000000" oninput="update()">
       </div>
       <div class="sl-group">
         <div class="sl-top"><span class="sl-name">AI queries per person per day</span><span class="sl-val" id="queries-out">20 / day</span></div>
@@ -479,7 +505,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border2);display:flex;justify-c
     <a href="#calculator">Impact</a>
     <a href="#join">Join</a>
   </div>
-  <div class="footer-copy">Global Local AI Movement · Non-profit · glammovement.org · Earth Day 2026</div>
+  <div class="footer-copy">Global Local AI Movement · Non-profit · globallocal.ai · Earth Day 2026</div>
 </footer>
 
 <script>
@@ -501,54 +527,76 @@ function updateCountdown(){
 updateCountdown();
 
 // calculator
-function fmt(n){if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'k';return Math.round(n).toLocaleString()}
-function fmtL(n){return n.toLocaleString()}
+function fmt(n){if(n>=1e12)return(n/1e12).toFixed(2)+'T';if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'k';return Math.round(n).toLocaleString()}
+function fmtL(n){if(n>=1e9)return(n/1e9).toFixed(1)+'B';if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1e3)return(n/1e3).toFixed(0)+'k';return n.toLocaleString()}
 function update(){
   const users=parseInt(document.getElementById('users-slider').value);
   const qpd=parseInt(document.getElementById('queries-slider').value);
   const shift=parseInt(document.getElementById('shift-slider').value)/100;
-  document.getElementById('users-out').textContent=users.toLocaleString();
+  document.getElementById('users-out').textContent=fmtL(users)+' users';
   document.getElementById('queries-out').textContent=qpd+' / day';
   document.getElementById('shift-out').textContent=Math.round(shift*100)+'%';
   const totalQPY=users*qpd*365;
   const shiftedQPY=totalQPY*shift;
   const energySavedKwh=(shiftedQPY*0.4)/1000;
   const energySavedMwh=energySavedKwh/1000;
+  const energySavedGwh=energySavedMwh/1000;
   const totalCloudKwh=(totalQPY*0.5)/1000;
   const residualKwh=(totalQPY*(1-shift)*0.5)/1000;
   const co2Kg=energySavedKwh*0.45;
   const co2Tonnes=co2Kg/1000;
+  const co2Mt=co2Tonnes/1e6;
   const cars=Math.round(co2Tonnes/4.6);
   const trees=Math.round(co2Tonnes*1000/22);
   const waterL=energySavedKwh*0.5;
   const waterM3=waterL/1000;
+  const waterBL=waterL/1e9;
   const pools=waterM3/2500;
   const homes=Math.round(energySavedKwh/10500);
-  document.getElementById('energy-val').textContent=energySavedMwh>=1?energySavedMwh.toFixed(1)+' MWh':energySavedKwh.toFixed(0)+' kWh';
-  document.getElementById('energy-sub').textContent=homes>=1?'≈ '+fmtL(homes)+' homes powered / yr':'less than one home equivalent';
-  document.getElementById('co2-val').textContent=co2Tonnes>=1?co2Tonnes.toFixed(1)+' t':co2Kg.toFixed(0)+' kg';
-  document.getElementById('co2-sub').textContent=cars>=1?'≈ '+fmtL(cars)+' cars off the road':fmtL(trees)+' trees planted equivalent';
-  document.getElementById('water-val').textContent=pools>=1?pools.toFixed(1)+(pools<2?' pool':' pools'):waterM3.toFixed(0)+' m³';
-  document.getElementById('water-sub').textContent=pools>=1?'olympic swimming pools / yr':'of cooling water saved per year';
+
+  // energy
+  if(energySavedGwh>=1){document.getElementById('energy-val').textContent=energySavedGwh.toFixed(1)+' GWh';}
+  else if(energySavedMwh>=1){document.getElementById('energy-val').textContent=energySavedMwh.toFixed(0)+' MWh';}
+  else{document.getElementById('energy-val').textContent=energySavedKwh.toFixed(0)+' kWh';}
+  document.getElementById('energy-sub').textContent=homes>=1000000?'≈ '+fmtL(homes)+' homes powered / yr':homes>=1?'≈ '+fmtL(homes)+' homes powered / yr':'less than one home';
+
+  // co2
+  if(co2Mt>=1){document.getElementById('co2-val').textContent=co2Mt.toFixed(2)+' Mt';}
+  else if(co2Tonnes>=1){document.getElementById('co2-val').textContent=co2Tonnes.toFixed(0)+' t';}
+  else{document.getElementById('co2-val').textContent=co2Kg.toFixed(0)+' kg';}
+  document.getElementById('co2-sub').textContent=cars>=1000?'≈ '+fmtL(cars)+' cars off the road':fmtL(trees)+' trees planted equivalent';
+
+  // water
+  if(waterBL>=1){document.getElementById('water-val').textContent=waterBL.toFixed(2)+' B litres';}
+  else if(pools>=1){document.getElementById('water-val').textContent=pools.toFixed(0)+' pools';}
+  else{document.getElementById('water-val').textContent=waterM3.toFixed(0)+' m³';}
+  document.getElementById('water-sub').textContent=waterBL>=1?'billion litres of cooling water conserved / yr':pools>=1?'olympic swimming pools / yr':'of cooling water saved per year';
+
   document.getElementById('queries-val').textContent=fmt(shiftedQPY);
+
   const pR=Math.round((1-shift)*100),pS=Math.round(shift*80);
+  const totalMwh=(totalCloudKwh/1000).toFixed(energySavedGwh>=1?0:1);
+  const residMwh=(residualKwh/1000).toFixed(energySavedGwh>=1?0:1);
+  const savedMwh=energySavedGwh>=1?energySavedGwh.toFixed(1)+' GWh':energySavedMwh.toFixed(0)+' MWh';
   document.getElementById('bars').innerHTML=`
-    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Total cloud energy (baseline)</span><span class="bar-val" style="color:#e05c5c">${(totalCloudKwh/1000).toFixed(1)} MWh/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#e05c5c;width:100%"></div></div></div>
-    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Remaining cloud energy (after shift)</span><span class="bar-val" style="color:#2e5234">${(residualKwh/1000).toFixed(1)} MWh/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#192119;width:${pR}%"></div></div></div>
-    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Energy saved by going local</span><span class="bar-val" style="color:#3ddc84">${energySavedMwh.toFixed(1)} MWh/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#3ddc84;width:${pS}%"></div></div></div>`;
+    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Total cloud energy (baseline)</span><span class="bar-val" style="color:#e05c5c">${totalMwh} MWh/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#e05c5c;width:100%"></div></div></div>
+    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Remaining cloud energy (after shift)</span><span class="bar-val" style="color:#2e5234">${residMwh} MWh/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#192119;width:${pR}%"></div></div></div>
+    <div class="bar-item"><div class="bar-meta"><span class="bar-name">Energy saved by going local</span><span class="bar-val" style="color:#3ddc84">${savedMwh}/yr</span></div><div class="bar-track"><div class="bar-fill" style="background:#3ddc84;width:${pS}%"></div></div></div>`;
+
   let a='';
-  if(users>=1000000){a=`<strong>${fmtL(users)} Glammers</strong> going local avoids <strong>${co2Tonnes.toFixed(0)} tonnes of CO₂</strong> every year — the equivalent of taking <strong>${fmtL(cars)} cars</strong> off the road, and conserving <strong>${pools.toFixed(0)} olympic pools</strong> of water that would otherwise cool a data center.`;}
-  else if(users>=250000){a=`<strong>${fmtL(users)} Glammers</strong> going local saves <strong>${co2Tonnes.toFixed(0)} tonnes of CO₂</strong> annually — like planting <strong>${fmtL(trees)} trees</strong>, and keeping <strong>${pools>=1?pools.toFixed(1)+' olympic pools':waterM3.toFixed(0)+' m³'}</strong> of clean water out of cooling towers.`;}
-  else if(users>=100000){a=`<strong>${fmtL(users)} early Glammers</strong> — <strong>${co2Tonnes.toFixed(1)} tonnes CO₂</strong> avoided, <strong>${fmtL(trees)} trees</strong> worth of impact, and <strong>${waterL>=1e6?(waterL/1e6).toFixed(2)+' million litres':fmtL(Math.round(waterL))+' litres'}</strong> of water kept out of data center cooling towers. Every year.`;}
+  if(users>=10000000){a=`<strong>${fmtL(users)} Glammers</strong> shifting ${Math.round(shift*100)}% local avoids <strong>${co2Mt>=1?co2Mt.toFixed(2)+' megatonnes':co2Tonnes.toFixed(0)+' tonnes'} of CO₂</strong> every year — equivalent to taking <strong>${fmtL(cars)} cars</strong> off the road permanently, and conserving <strong>${waterBL>=1?waterBL.toFixed(1)+' billion litres':pools.toFixed(0)+' olympic pools'}</strong> of clean water that would otherwise cool data centers.`;}
+  else if(users>=1000000){a=`<strong>${fmtL(users)} Glammers</strong> going local avoids <strong>${co2Tonnes.toFixed(0)} tonnes of CO₂</strong> every year — taking <strong>${fmtL(cars)} cars</strong> off the road, conserving <strong>${pools.toFixed(0)} olympic pools</strong> of water that would otherwise cool a data center.`;}
+  else if(users>=100000){a=`<strong>${fmtL(users)} early Glammers</strong> — <strong>${co2Tonnes.toFixed(1)} tonnes CO₂</strong> avoided, <strong>${fmtL(trees)} trees</strong> worth of impact, and <strong>${waterL>=1e6?(waterL/1e6).toFixed(1)+' million litres':fmtL(Math.round(waterL))+' litres'}</strong> of water saved from data center cooling. Every year.`;}
   else{a=`Even <strong>${fmtL(users)} early Glammers</strong> — <strong>${co2Kg.toFixed(0)} kg CO₂</strong> avoided, <strong>${fmtL(Math.round(waterL))} litres</strong> of water conserved. Every movement starts here.`;}
   document.getElementById('analogy').innerHTML=a;
+
   document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
-  const map={10000:'10k users',100000:'100k users',250000:'250k users',1000000:'1M users'};
+  const map={100000:'100k',1000000:'1M',10000000:'10M',100000000:'100M'};
   document.querySelectorAll('.preset-btn').forEach(b=>{if(b.textContent===map[users])b.classList.add('active')});
 }
 function setUsers(n){document.getElementById('users-slider').value=n;update()}
 
-// join
+update();
 function joinGlam(){
   const email=document.getElementById('email-input').value;
   if(!email||!email.includes('@'))return;
