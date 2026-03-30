@@ -157,7 +157,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3)}
 .res-card{background:var(--bg2);padding:1.5rem}
 .res-label{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:var(--text3);margin-bottom:0.6rem}
 .res-value{font-family:'Fraunces',serif;font-size:2.25rem;font-weight:700;line-height:1;margin-bottom:0.35rem}
-.res-sub{font-size:11px;color:var(--text2);line-height:1.5}
+.res-sub{font-size:11px;color:var(--text2);line-height:1.6}
 .r-green{color:var(--green)}.r-teal{color:var(--teal)}.r-amber{color:var(--amber)}.r-red{color:var(--red)}
 .hdiv{border:none;border-top:1px solid var(--border2);margin:1.5rem 0}
 .bar-item{margin-bottom:1.25rem}
@@ -564,7 +564,7 @@ function update(){
   if(co2Mt>=1){document.getElementById('co2-val').textContent=co2Mt.toFixed(2)+' Mt';}
   else if(co2Tonnes>=1){document.getElementById('co2-val').textContent=co2Tonnes.toFixed(0)+' t';}
   else{document.getElementById('co2-val').textContent=co2Kg.toFixed(0)+' kg';}
-  document.getElementById('co2-sub').textContent=cars>=1000?'≈ '+fmtL(cars)+' cars off the road':fmtL(trees)+' trees planted equivalent';
+  document.getElementById('co2-sub').textContent=cars>=1000?'≈ '+fmtL(cars)+' cars off the road · '+fmtL(trees)+' trees planted':fmtL(trees)+' trees planted';
 
   // water
   if(waterBL>=1){document.getElementById('water-val').textContent=waterBL.toFixed(2)+' B litres';}
