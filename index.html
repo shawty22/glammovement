@@ -597,12 +597,11 @@ function update(){
 function setUsers(n){document.getElementById('users-slider').value=n;update()}
 
 update();
+  
 function joinGlam(){
   const email=document.getElementById('email-input').value;
   if(!email||!email.includes('@'))return;
-  document.querySelector('.email-wrap').style.display='none';
-  document.querySelector('.join-note').style.display='none';
-  document.getElementById('join-success').style.display='block';
+  window.location.href='https://glam.beehiiv.com/subscribe?email='+encodeURIComponent(email);
 }
 
 update();
